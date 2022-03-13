@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { DiGithubFull } from "react-icons/di";
 import { FaGithub, FaSearch } from "react-icons/fa";
-const SearchUser = ({ onChangeUser }) => {
+const SearchUser = ({ onChangeUser, className }) => {
   const [user, setUser] = useState("");
 
   return (
-    <>
+    <div>
       <div className="jumbotron jumbotron-fluid">
         <div className="container  align-items-center">
           <h5 className="text-white text-center">
@@ -42,7 +42,7 @@ const SearchUser = ({ onChangeUser }) => {
           Search <FaSearch />
         </Button>
       </Form>
-    </>
+    </div>
   );
 };
 
