@@ -17,18 +17,20 @@ function App() {
 
   //after state userDetail updates, get the repo
   useEffect(() => {
-    async function setRepoToState() {
-      const repo = await getReposByUsername(userDetail.login);
-      setRepoList(repo);
+    if (userDetail) {
+      async function setRepoToState() {
+        const repo = await getReposByUsername(userDetail.login);
+        setRepoList(repo);
+      }
+      setRepoToState();
     }
-    setRepoToState();
   }, [userDetail]);
 
   return (
-    <>
+    <div className="p-5">
       <SearchUser onChangeUser={onChangeUser} />
       <RepoList user={userDetail} repo={repoList} />
-    </>
+    </div>
   );
 }
 
