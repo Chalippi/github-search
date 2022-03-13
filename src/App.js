@@ -10,6 +10,7 @@ function App() {
   const [userDetail, setUserDetail] = useState({});
   const [repoList, setRepoList] = useState([]);
   const [repoPerPage, setRepoPerPage] = useState(10);
+  const [page, setPage] = useState(1);
 
   //to handle change on SearchUser
   const onChangeUser = async (username) => {
@@ -21,7 +22,11 @@ function App() {
   useEffect(() => {
     if (!isEmptyObject(userDetail) && !userDetail.error) {
       async function setRepoToState() {
-        const repo = await getReposByUsername(userDetail.login, repoPerPage);
+        const repo = await getReposByUsername(
+          userDetail.login,
+          repoPerPage,
+          page
+        );
         setRepoList(repo);
       }
       setRepoToState();

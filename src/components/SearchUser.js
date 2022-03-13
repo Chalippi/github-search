@@ -11,8 +11,7 @@ const SearchUser = ({ onChangeUser }) => {
         <div className="container  align-items-center">
           <h5 className="text-white text-center">
             {" "}
-            <FaGithub size={75} />
-            <DiGithubFull size={200} /> Search
+            <FaGithub size={75} /> <DiGithubFull size={200} /> Search
           </h5>
           <p className="lead text-white text-center">
             Simplify your public repo search.

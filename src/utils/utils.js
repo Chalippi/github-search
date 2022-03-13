@@ -1,5 +1,5 @@
 const isArray = (payload) => {
-  return Array.isArray(payload);
+  return payload && Array.isArray(payload);
 };
 
 const isEmptyArray = (payload) => {
@@ -7,7 +7,7 @@ const isEmptyArray = (payload) => {
 };
 
 const isObject = (payload) => {
-  return typeof payload == "object";
+  return payload && typeof payload == "object";
 };
 
 const isEmptyObject = (payload) => {
@@ -15,7 +15,7 @@ const isEmptyObject = (payload) => {
 };
 
 const isString = (payload) => {
-  return typeof payload == "string";
+  return payload && typeof payload == "string";
 };
 
 export { isArray, isEmptyArray, isObject, isEmptyObject, isString };
