@@ -3,11 +3,13 @@ import SearchUser from "./components/SearchUser";
 import { getUser } from "./apis/Users";
 import { getReposByUsername } from "./apis/Repos";
 import RepoList from "./components/RepoList";
+import { isEmptyObject } from "./utils/utils";
 
 function App() {
   //to save state of username from component SearchUser
-  const [userDetail, setUserDetail] = useState(null);
+  const [userDetail, setUserDetail] = useState({});
   const [repoList, setRepoList] = useState([]);
+  const [repoPerPage, setRepoPerPage] = useState(10);
 
   //to handle change on SearchUser
   const onChangeUser = async (username) => {
@@ -17,9 +19,9 @@ function App() {
 
   //after state userDetail updates, get the repo
   useEffect(() => {
-    if (userDetail) {
+    if (!isEmptyObject(userDetail) && !userDetail.error) {
       async function setRepoToState() {
-        const repo = await getReposByUsername(userDetail.login);
+        const repo = await getReposByUsername(userDetail.login, repoPerPage);
         setRepoList(repo);
       }
       setRepoToState();

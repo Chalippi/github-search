@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { DiGithubFull } from "react-icons/di";
 import { FaGithub, FaSearch } from "react-icons/fa";
-const SearchUser = ({ onChangeUser, className }) => {
+const SearchUser = ({ onChangeUser }) => {
   const [user, setUser] = useState("");
 
   return (

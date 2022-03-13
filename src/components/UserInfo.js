@@ -13,7 +13,6 @@ import { MdAdsClick, MdEmail } from "react-icons/md";
 import moment from "moment";
 
 const UserInfo = ({ user }) => {
-  console.log(user);
   return (
     user && (
       <div>

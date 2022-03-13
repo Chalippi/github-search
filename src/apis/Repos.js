@@ -2,12 +2,14 @@ import { Octokit } from "octokit";
 
 const octokit = new Octokit();
 
-const getReposByUsername = async (username) => {
+const getReposByUsername = async (username, per_page) => {
   try {
-    const result = await octokit.request(`GET /users/${username}/repos`);
+    const result = await octokit.paginate(`GET /users/${username}/repos`, {
+      per_page: per_page,
+    });
     return result.data;
   } catch (err) {
-    return err.message;
+    return { error: err.message };
   }
 };
 
